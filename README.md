@@ -18,7 +18,7 @@ Com um terminal aberto execute a seguinte sequência de comandos:
 
 ```
 git clone https://github.com/juliocesarnt/rabbit-pgjbz.git
-cd rabbit-pgjbz
+cd rabbit-mq-use-java-example
 docker-compose up -d
 python3 req.py
 ```
@@ -90,6 +90,6 @@ tem as seguintes configurações com as variaveis de ambiente:
 - ```RABBITMQ_HOST``` onde é definido o host do RabbitMQ o valor padrão é ```localhost```
 - ```RABBITMQ_PORT``` onde é definido a porta do RabbitMQ o valor padrão é ```5672```
 - ```RABBITMQ_USERNAME``` onde é definido o usuario do RabbitMQ o valor padrão é ```guest```
-- ```RABBITMQ_PASSWORD``` onde é definido a senha do usuario do RabbitMQ o valor padrão é guest
+- ```RABBITMQ_PASSWORD``` onde é definido a senha do usuario do RabbitMQ o valor padrão é ```guest```
 
 
