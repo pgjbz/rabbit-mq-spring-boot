@@ -1,0 +1,65 @@
+version: '3'
+
+services: 
+
+    rabbitmq:
+        container_name: 'rabbitmq'
+        image: rabbitmq:3-management-alpine
+        ports:
+            - 5672:5672
+            - 15672:15672
+        networks: 
+            - desafio
+        volumes: 
+            - rabbitmq_vol:/var/lib/rabbitmq
+
+    postgres:
+        container_name: 'database'
+        image: postgres:13
+        environment: 
+            POSTGRES_DB: desafio
+            POSTGRES_USER: rabbit
+            POSTGRES_PASSWORD: secret123
+        ports:
+            - 5432:5432
+        networks: 
+            - desafio
+    
+    adminer:
+        image: dpage/pgadmin4
+        container_name: 'pgadmin'
+        environment: 
+            PGADMIN_DEFAULT_EMAIL: user@mail.com
+            PGADMIN_DEFAULT_PASSWORD: secret123
+        ports:
+            - 80:80
+        networks: 
+            - desafio
+        volumes: 
+            - postgres_vol:/var/lib/postgresql/data
+
+    subscription:
+        container_name: 'subscription'
+        image: paulogabrieljb/subscription-service:1.1
+        environment:
+            JDBC_HOST: postgres
+            RABBITMQ_HOST: 'rabbitmq'
+        ports:
+            - 8080:8080
+        depends_on:
+            - rabbitmq
+            - postgres
+        networks:
+            - desafio
+        volumes:
+            - subscription_vol:/tmp
+
+    
+volumes: 
+    postgres_vol:
+    rabbitmq_vol:
+    subscription_vol:
+
+networks: 
+    desafio:
+        driver: bridge
