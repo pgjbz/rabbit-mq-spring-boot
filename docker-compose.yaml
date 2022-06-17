@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+  database:
+    container_name: 'subscription-db'
+    image: postgres:14-alpine
+    ports:
+    - '5432:5432'
+    environment:
+      POSTGRES_DB: subscription
+      POSTGRES_USER: subscription.svc
+      POSTGRES_PASSWORD: subscription.svc
+    
+  rabbitmq:
+    container_name: 'subscription-queue'
+    image: rabbitmq:3.10-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: subscription.svc
+      RABBITMQ_DEFAULT_PASS: subscription.svc
+    ports:
+    - '5672:5672'
+    - '15672:15672'

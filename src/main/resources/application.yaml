@@ -1,0 +1,25 @@
+
+spring:
+  application:
+    name: 'Subscription RabbitMQ'
+  r2dbc:
+    url: r2dbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSRGRES_DATABASE:postgres}?schema=${POSTGRES_SCHEMA:anime}
+    username: ${POSTGRES_USERNAME:root}
+    password: ${POSTGRES_PASSWORD:root}
+  rabbitmq:
+    host: ${RABBIT_MQ_HOST:localhost}
+    username: ${RABBIT_MQ_USERNAME:subscription.svc}
+    password: ${RABBIT_MQ_PASSWORD:subscription.svc}
+    port: ${RABBIT_MQ_PORT:5672}
+
+springdoc:
+  api-docs.path: /api-documentation
+  swagger-ui:
+    path: /docs
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          r2dbc: DEBUG
