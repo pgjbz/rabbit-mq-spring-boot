@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import dev.pgjbz.subscriptionrabbitmq.domain.exceptions.DataNotFoundException;
 import dev.pgjbz.subscriptionrabbitmq.domain.models.Subscription;
 import dev.pgjbz.subscriptionrabbitmq.domain.ports.services.SubscriptionService;
-import dev.pgjbz.subscriptionrabbitmq.exceptions.DataNotFoundException;
 import dev.pgjbz.subscriptionrabbitmq.infra.configuration.RabbitMQConfig;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;

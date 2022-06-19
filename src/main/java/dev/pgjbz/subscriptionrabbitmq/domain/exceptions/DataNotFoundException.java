@@ -1,4 +1,4 @@
-package dev.pgjbz.subscriptionrabbitmq.exceptions;
+package dev.pgjbz.subscriptionrabbitmq.domain.exceptions;
 
 public class DataNotFoundException extends RuntimeException {
 
