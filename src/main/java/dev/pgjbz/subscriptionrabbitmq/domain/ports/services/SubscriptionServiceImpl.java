@@ -1,15 +1,20 @@
-package dev.pgjbz.subscriptionrabbitmq.domain.adapter.services;
+package dev.pgjbz.subscriptionrabbitmq.domain.ports.services;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 import dev.pgjbz.subscriptionrabbitmq.domain.models.Subscription;
 import dev.pgjbz.subscriptionrabbitmq.domain.ports.repository.SubscriptionRepository;
-import dev.pgjbz.subscriptionrabbitmq.domain.ports.services.SubscriptionService;
 import dev.pgjbz.subscriptionrabbitmq.exceptions.DataNotFoundException;
 
-public record SubscriptionServiceImpl(
-        SubscriptionRepository subscriptionRepository) implements SubscriptionService {
+public final class SubscriptionServiceImpl
+        implements SubscriptionService {
+
+    private final SubscriptionRepository subscriptionRepository;
+
+    public SubscriptionServiceImpl(SubscriptionRepository subscriptionRepository) {
+        this.subscriptionRepository = subscriptionRepository;
+    }
 
     @Override
     public Subscription createSubscription(Subscription subscription) {

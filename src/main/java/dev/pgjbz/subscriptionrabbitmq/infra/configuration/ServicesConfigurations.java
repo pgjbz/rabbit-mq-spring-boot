@@ -3,8 +3,8 @@ package dev.pgjbz.subscriptionrabbitmq.infra.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import dev.pgjbz.subscriptionrabbitmq.domain.adapter.services.SubscriptionServiceImpl;
 import dev.pgjbz.subscriptionrabbitmq.domain.ports.services.SubscriptionService;
+import dev.pgjbz.subscriptionrabbitmq.domain.ports.services.SubscriptionServiceImpl;
 import dev.pgjbz.subscriptionrabbitmq.infra.repository.impl.SubscriptionRepositoryImpl;
 
 @Configuration
