@@ -3,7 +3,7 @@ WORKDIR /app
 COPY . /app
 RUN mvn clean package
 
-FROM docker.io/17-alpine3.13 as runner
+FROM docker.io/amazoncorretto:17-alpine3.13 as runner
 WORKDIR /app
 COPY --from=builder /app/target/*.jar ./app.jar
 EXPOSE 8080
